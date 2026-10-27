@@ -74,7 +74,7 @@ const App = () => {
       {isLoading && <Loader />}
       {!isLoading && isError && <ErrorMessage />}
       {!isLoading && !isError && movies && movies.length > 0 && (
-        <MovieGrid onSelect={handleSelectMovie} movies={data?.results} />
+        <MovieGrid onSelect={handleSelectMovie} movies={movies} />
       )}
       {selectedMovie && (
         <MovieModal movie={selectedMovie} onClose={handleCloseModal} />
