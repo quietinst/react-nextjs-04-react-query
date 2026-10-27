@@ -54,23 +54,23 @@ const App = () => {
     setSelectedMovie(null);
   };
 
+  const paginationProps: ReactPaginateProps = {
+    pageCount: totalPages,
+    pageRangeDisplayed: 5,
+    marginPagesDisplayed: 1,
+    forcePage: currentPage - 1,
+    onPageChange: ({ selected }) => setCurrentPage(selected + 1),
+    containerClassName: styles.pagination,
+    activeClassName: styles.active,
+    nextLabel: '→',
+    previousLabel: '←',
+  };
+
   return (
     <main className={styles.app}>
       <Toaster position="top-center" />
       <SearchBar onSubmit={handleSearch} />
-      {totalPages > 1 && (
-        <ReactPaginate
-          pageCount={totalPages}
-          pageRangeDisplayed={5}
-          marginPagesDisplayed={1}
-          onPageChange={({ selected }) => setCurrentPage(selected + 1)}
-          forcePage={currentPage - 1}
-          containerClassName={styles.pagination}
-          activeClassName={styles.active}
-          nextLabel="→"
-          previousLabel="←"
-        />
-      )}
+      {totalPages > 1 && <ReactPaginate {...paginationProps} />}
       {isLoading && <Loader />}
       {!isLoading && isError && <ErrorMessage />}
       {!isLoading && !isError && movies && movies.length > 0 && (
