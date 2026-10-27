@@ -1,5 +1,7 @@
 # 04 — React Query
 
+🔗 [Live demo](https://react-nextjs-04-react-query.vercel.app)
+
 The movie search app from the previous module, extended with pagination. Search
 movies on TMDB by keyword, browse the results page by page, and open any movie
 in a modal with its details.
